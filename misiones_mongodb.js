@@ -1,4 +1,3 @@
-// Conectarse a la base de datos
 use bestiario;
 
 // Documento 1 (insertOne)
@@ -85,3 +84,18 @@ db.criaturas.find({ habitat: "Bosque Encantado" }).forEach(doc => printjson(doc)
 
 print('\n====== Criaturas con nivel_peligro mayor que 8 ======');
 db.criaturas.find({ nivel_peligro: { $gt: 8 } }).forEach(doc => printjson(doc));
+
+print('\n====== Se agregó la habilidad al Dragón de Fuego con updateOne ======');
+db.criaturas.updateOne(
+{ nombre: "Dragón de Fuego" },
+{ $addToSet: { habilidades: "garra dragón" } } // addToSet evita duplicados
+);
+
+print('\n====== Se incrementó nivel_peligro en 1 en Bosque Encantado con updateMany======');
+db.criaturas.updateMany(
+{ habitat: "Bosque Encantado" },
+{ $inc: { nivel_peligro: 1 } }
+);
+
+print('\n====== CAMBIOS APLICADOS ======');
+db.criaturas.find().forEach(doc => printjson(doc)); 
