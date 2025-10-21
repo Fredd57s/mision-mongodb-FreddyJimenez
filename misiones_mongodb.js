@@ -76,3 +76,12 @@ db.criaturas.insertMany([
     descripcion: "Antiguo rey que gobierna sobre un reino sumergido de criaturas de fuego y metal.",
   }
 ]);
+
+print('\n====== Criaturas del Bestiario ======');
+db.criaturas.find().forEach(doc => printjson(doc));
+
+print('\n====== Criaturas que habitan en el Bosque Encantado ======');
+db.criaturas.find({ habitat: "Bosque Encantado" }).forEach(doc => printjson(doc));
+
+print('\n====== Criaturas con nivel_peligro mayor que 8 ======');
+db.criaturas.find({ nivel_peligro: { $gt: 8 } }).forEach(doc => printjson(doc));
