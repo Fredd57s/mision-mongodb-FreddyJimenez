@@ -1,0 +1,66 @@
+//PRUEBA EN GUARDIANES
+use("bestiario")
+//Prueba válida
+db.guardianes.insertOne({
+    nombre: "Artorias",
+    rango: "Gran Maestro",
+    password_acceso: "Artorias123",
+    nivel: 45,
+    inventario: [
+        { 
+            nombre_item: "Espadón del Abismo", 
+            cantidad: 1 
+        },
+        {
+            nombre_item: "Aerola de Fuego", 
+            cantidad: 3 
+        }
+    ]
+})
+
+//Prueba erronea
+db.guardianes.insertOne({
+  nombre: "Eleris",
+  rango: "Aprendíces", // Error, el valor permitido es "Aprendiz"
+  password_acceso: "eleris", // Error, falta una mayúscula
+  nivel: 20,
+  inventario: [
+    { 
+        nombre_item: "Arco de acero", 
+        cantidad: 1 
+    }
+  ]
+})
+
+// Obtener el _id del guardián
+db.guardianes.find({}, { _id: 1 })
+//PRUEBA EN CRIATURAS
+//Prueba válida
+const idGuardianValido = ObjectId("6902b742f78c1070da23a1bd") //  _id válido obtenido de la colección guardianes
+
+db.criaturas.insertOne({
+  nombre: "Dragón Rojo",
+  habitat: "Bosque Ardientes",
+  nivel_peligro: 10,
+  es_legendaria: true,
+  habilidades: ["Tajo aereo", "Lanza llamas", "Intimidación"],
+  ficha_veterinaria: {
+    salud: "Óptima",
+    ultima_revision: new Date("2025-10-01")
+  },
+  id_guardian: idGuardianValido
+})
+
+//Prueba erronea
+db.criaturas.insertOne({
+  nombre: "Araña escarlata",
+  habitat: "Pantano Tenebroso",
+  nivel_peligro: 7,
+  es_legendaria: false,
+  habilidades: [], // Error, debe tener al menos 1 elemento
+  ficha_veterinaria: {
+    ultima_revision: new Date("2025-09-15") 
+    // Falta campo "salud"
+  },
+  id_guardian: idGuardianValido
+})
