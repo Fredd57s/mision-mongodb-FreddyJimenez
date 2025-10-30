@@ -1,18 +1,18 @@
-#﻿**mision\_02\_validacion**
+#﻿  mision_02_validacion**
 
 Tarea 3 individual: El Guardián del Esquema y los Vínculos Arcanos
 
-#**Misión: Bestiario Digital — MongoDB**
+#  Misión: Bestiario Digital — MongoDB**
 
 **Autor:** Freddy Cristhian Jiménez Dávila
 
-##**Descripción**
+##  Descripción**
 
 Este repositorio contiene la continuación del proyecto Bestiario Digital y tiene como objetivo blindar la base de datos mediante la validación de esquemas (JSON Schema) en MongoDB para evitar le inserción de datos inválidos y mantener correctamente estructurados los que vayan ingresando.
 
 Dentro de esta actividad se muestran reglas de integridad y control para asegurar que los documentos insertados cumplan con una estructura predefinida, la cual es muy flexible y puede ser reestructurada rápidamente, y tipos de datos correctos, así como modelar adecuadamente las relaciones entre las entidades guardianes y criaturas.
 
-##**Archivos incluidos**
+##  Archivos incluidos**
 
 - **01\_definicion\_guardianes.mongodb —** Script que define la colección guardianes con un JSON Schema para sus reglas de validación.
 - **02\_definicion\_criaturas.mongodb** — Script que define la colección criaturas con un JSON Schema para sus reglas de validación.
