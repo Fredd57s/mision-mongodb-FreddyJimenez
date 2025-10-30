@@ -25,4 +25,4 @@ Justifica por qué cada decisión de modelado (embebida vs. referenciada) fue la
 
 Nota: Cada vez que se intentaba ingresar un dato invalido salía el siguiente mensaje dentro de Visual Studio Code.
 
-![](Aspose.Words.b91e81d8-516d-4acb-8cc3-2db541741f09.001.png)
+![](./img/validar.png)
